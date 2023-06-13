@@ -7,7 +7,7 @@ import responseUtil from 'utils/responseUtil';
 
 const QrController = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [qrImageByteArray, setQrImageByteArray] = useState(null);
+  const [qrImageDataUrl, setQrImageDataUrl] = useState(null);
 
   let sourceToken = axios.CancelToken.source();
 
@@ -19,7 +19,7 @@ const QrController = () => {
     })
       .then((res) => {
         if (responseUtil.responseIsSuccess(res.data.resCode)) {
-          setQrImageByteArray(res.data.resData);
+          setQrImageDataUrl(res.data.resData);
         }
       })
       .catch(() => {
@@ -36,7 +36,7 @@ const QrController = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <QrView isLoading={isLoading} qrImageByteArray={qrImageByteArray} />;
+  return <QrView isLoading={isLoading} qrImageDataUrl={qrImageDataUrl} />;
 };
 
 export default QrController;
