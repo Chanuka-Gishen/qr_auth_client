@@ -12,8 +12,6 @@ import { NAVIGATION_ROUTES } from 'routes/constant/NavigationRoutes';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import authAction from '../../store/action/authAction';
-import { BACKEND_API } from '../../axios/constant/BackendApi';
-import { backendAuthApi } from '../../axios/instance/BackendAxiosInstance';
 
 // ----------------------------------------------------------------------
 
@@ -34,9 +32,7 @@ export default function AccountPopover() {
 
   const navigate = useNavigate();
 
-  const [isLoading, setIsLoading] = useState(false);
-
-  const admin = useSelector((state) => state.auth.admin);
+  const admin = useSelector((state) => state.auth.user);
 
   const handleOpen = () => {
     setOpen(true);
@@ -71,27 +67,13 @@ export default function AccountPopover() {
       sx: {
         bgcolor: stringToColor(name)
       },
-      children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`
+      children: `${name.charAt(0)}`
     };
   };
 
   const handleLogOut = async () => {
-    setIsLoading(true);
-
-    await backendAuthApi({
-      method: 'POST',
-      url: BACKEND_API.LOGOUT
-    })
-      .then(() => {
-        dispatch(authAction.logoutUser());
-        navigate(NAVIGATION_ROUTES.login);
-      })
-      .catch(() => {
-        setIsLoading(false);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    dispatch(authAction.logoutUser());
+    navigate(NAVIGATION_ROUTES.login);
   };
 
   return (
@@ -116,7 +98,7 @@ export default function AccountPopover() {
           })
         }}
       >
-        <Avatar src="#" alt="photoURL" {...stringAvatar(admin.name)} />
+        <Avatar src="#" alt="photoURL" {...stringAvatar(admin.email)} />
       </IconButton>
 
       <MenuPopover
@@ -126,11 +108,8 @@ export default function AccountPopover() {
         sx={{ width: 220 }}
       >
         <Box sx={{ my: 1.5, px: 2.5 }}>
-          <Typography variant="subtitle1" noWrap>
-            {admin.name}
-          </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-            {admin.email}
+            {admin.mobile}
           </Typography>
         </Box>
 
@@ -159,13 +138,7 @@ export default function AccountPopover() {
         ))}
 
         <Box sx={{ p: 2, pt: 1.5 }}>
-          <Button
-            fullWidth
-            color="inherit"
-            variant="outlined"
-            disabled={isLoading}
-            onClick={handleLogOut}
-          >
+          <Button fullWidth color="inherit" variant="outlined" onClick={handleLogOut}>
             Logout
           </Button>
         </Box>

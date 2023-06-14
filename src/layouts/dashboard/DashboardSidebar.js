@@ -6,7 +6,7 @@ import { Box, Link, Drawer, Typography, Avatar } from '@mui/material';
 import Scrollbar from 'components/Scrollbar';
 import NavSection from 'components/NavSection';
 import { MHidden } from 'components/@material-extend';
-import navigationDrawer from "routes/constant/NavigationDrawer";
+import navigationDrawer from 'routes/constant/NavigationDrawer';
 import { useSelector } from 'react-redux';
 
 const DRAWER_WIDTH = 280;
@@ -34,7 +34,7 @@ DashboardSidebar.propTypes = {
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useLocation();
 
-  const admin = useSelector((state) => state.auth.admin);
+  const admin = useSelector((state) => state.auth.user);
 
   useEffect(() => {
     if (isOpenSidebar) {
@@ -56,16 +56,13 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
         </Box>
       </Box> */}
 
-      <Box sx={{ mb: 5, mx: 2.5, mt:5 }}>
+      <Box sx={{ mb: 5, mx: 2.5, mt: 5 }}>
         <Link underline="none" component={RouterLink} to="#">
           <AccountStyle>
-            <Avatar src={admin.userImageUrl} alt="photoURL" />
+            <Avatar src={'#'} alt="photoURL" children={admin.email.charAt(0)} />
             <Box sx={{ ml: 2 }}>
               <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
-                {admin.name}
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                {admin.role}
+                {admin.email}
               </Typography>
             </Box>
           </AccountStyle>
@@ -75,7 +72,6 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
       <NavSection navConfig={navigationDrawer} />
 
       <Box sx={{ flexGrow: 1 }} />
-
     </Scrollbar>
   );
 

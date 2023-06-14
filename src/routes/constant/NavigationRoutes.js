@@ -3,6 +3,7 @@ export const NAVIGATION_ROUTES = {
   login: '/login',
   register: '/register',
   qr: '/qr',
+  verifyPin: '/verifyPin/:id',
 
   // main routes
   dashboard: '/dashboard'
