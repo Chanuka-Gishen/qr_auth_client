@@ -1,6 +1,5 @@
 // SERVER URL
-//const IP_URL = 'https://qr-auth-server.cyclic.app';
-const IP_URL = 'http://localhost:3001';
+const IP_URL = 'http://16.171.17.70:3001';
 
 // URIs
 export const BACKEND_API = {

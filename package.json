@@ -2,14 +2,12 @@
   "name": "qr_auth_client",
   "version": "1.0.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "http://Chanuka-Gishen.github.io/qr_auth_client",
   "scripts": {
     "start": "react-scripts start",
-    "build:devStaging": "env-cmd -f .env.devStaging react-scripts build",
-    "build:staging": "env-cmd -f .env.staging react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx ./src",
     "lint:fix": "eslint --fix --ext .js,.jsx ./src"
   },
@@ -77,6 +75,7 @@
     "@babel/core": "^7.15.5",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "env-cmd": "^10.1.0",
+    "gh-pages": "^5.0.0",
     "prettier": "^2.8.8"
   }
 }
