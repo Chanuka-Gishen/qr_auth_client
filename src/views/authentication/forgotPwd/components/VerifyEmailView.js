@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { LoadingButton } from '@mui/lab';
-import { Stack, TextField, Typography } from '@mui/material';
+import { Stack, TextField, Typography, Link } from '@mui/material';
 import { FormikProvider } from 'formik';
 
 export const VerifyEmailView = (props) => {
@@ -35,6 +36,13 @@ export const VerifyEmailView = (props) => {
         >
           Verify
         </LoadingButton>
+        <Stack direction="row" alignItems="center" justifyContent="right" sx={{ my: 2 }}>
+          <Link to="/login" component={RouterLink}>
+            <Typography variant="subtitle2" color={'primary'}>
+              Remember password? login now
+            </Typography>
+          </Link>
+        </Stack>
       </FormikProvider>
     </>
   );
