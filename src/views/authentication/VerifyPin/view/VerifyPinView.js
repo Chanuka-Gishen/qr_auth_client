@@ -38,7 +38,7 @@ export const VerifyPinView = (props) => {
     <RootStyle title="Verify Pin">
       <MHidden width="mdDown">
         <SectionStyle>
-          <img alt="verify" src="/static/illustrations/illustration_register.png" />
+          <img alt="verify" src="/static/illustrations/illustration_pin.png" />
         </SectionStyle>
       </MHidden>
 

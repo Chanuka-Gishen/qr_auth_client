@@ -50,9 +50,9 @@ export const LoginForm = (props) => {
       </Stack>
 
       <Stack direction="row" alignItems="center" justifyContent="right" sx={{ my: 2 }}>
-        <Link to="/register" component={RouterLink}>
+        <Link to="/forgotPwd" component={RouterLink}>
           <Typography variant="subtitle2" color={'primary'}>
-            Dont have an account? Register now
+            Forgot password? Reset now
           </Typography>
         </Link>
       </Stack>

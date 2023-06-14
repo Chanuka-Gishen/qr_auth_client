@@ -1,14 +1,13 @@
 import React from 'react';
 // material
 import { styled } from '@mui/material/styles';
-import { Card, Stack, Container, Typography } from '@mui/material';
+import { Card, Stack, Container, Typography, Link } from '@mui/material';
 // layouts
 // components
 import Page from 'components/Page';
 import { MHidden } from 'components/@material-extend';
 import { LoginForm } from './LoginForm';
-
-//import login_background from 'assets/images/login_screen.svg';
+import { Link as RouterLink } from 'react-router-dom';
 
 // ----------------------------------------------------------------------
 
@@ -58,7 +57,11 @@ export const Login = (props) => {
             <Typography variant="h4" gutterBottom>
               Sign in to QRAuthy
             </Typography>
-            <Typography sx={{ color: 'text.secondary' }}>Enter your details below.</Typography>
+            <Link to="/register" component={RouterLink}>
+              <Typography variant="subtitle2" color={'primary'}>
+                Dont have an account? Register now
+              </Typography>
+            </Link>
           </Stack>
 
           <LoginForm

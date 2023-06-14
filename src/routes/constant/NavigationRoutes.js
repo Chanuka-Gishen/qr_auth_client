@@ -4,6 +4,10 @@ export const NAVIGATION_ROUTES = {
   register: '/register',
   qr: '/qr',
   verifyPin: '/verifyPin/:id',
+  forgotPwd: '/forgotPwd',
+  verifyEmail: '/verifyEmail',
+  verifyOtp: '/verifyOtp',
+  resetPwd: '/resetPwd',
 
   // main routes
   dashboard: '/dashboard'
