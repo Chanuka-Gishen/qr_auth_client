@@ -45,15 +45,17 @@ export const VerifyPinForm = (props) => {
           >
             Verify
           </LoadingButton>
-          <LoadingButton
-            size="large"
-            variant="contained"
-            onClick={() => handleResendingPin()}
-            sx={{ width: 'fit-content' }}
-            loading={isSubmitting || isVerifying || isLoading}
-          >
-            Resend PIN
-          </LoadingButton>
+          <Stack direction={'row'} alignItems="center" justifyContent="right" sx={{ my: 2 }}>
+            <LoadingButton
+              size="large"
+              variant="contained"
+              onClick={() => handleResendingPin()}
+              sx={{ width: 'fit-content' }}
+              loading={isSubmitting || isVerifying || isLoading}
+            >
+              Resend PIN
+            </LoadingButton>
+          </Stack>
         </Stack>
       </Form>
     </FormikProvider>
