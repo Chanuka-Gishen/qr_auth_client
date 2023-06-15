@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/qr_auth_client/static/css/main.cd33733f.css",
+    "main.js": "/qr_auth_client/static/js/main.1123d35b.js",
+    "static/js/522.271d7041.chunk.js": "/qr_auth_client/static/js/522.271d7041.chunk.js",
+    "index.html": "/qr_auth_client/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.cd33733f.css",
+    "static/js/main.1123d35b.js"
+  ]
+}
